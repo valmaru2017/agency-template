@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+:root {
+  --background: #faf6ef;
+  --foreground: #2b2117;
+  --accent: #b1602f;
+  --accent-hover: #924e26;
+  --muted: #8a7c6c;
+  --surface-warm: #f0e4d3;
+  --surface-dark: #241a12;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-muted: var(--muted);
+  --color-surface-warm: var(--surface-warm);
+  --color-surface-dark: var(--surface-dark);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-inter-delfos);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+.text-display-xl {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(44px, 6vw, 84px);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+}
+
+.text-display-l {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+
+.text-display-m {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(22px, 2vw, 30px);
+  line-height: 1.2;
+}
+
+.text-body-l {
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.65;
+  font-weight: 400;
+}
+
+.text-meta {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+}
+
+.delfos-shell {
+  max-width: 1440px;
+}
+
+.delfos-section {
+  padding-top: 64px;
+  padding-bottom: 64px;
+}
+
+@media (min-width: 768px) {
+  .delfos-section {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
