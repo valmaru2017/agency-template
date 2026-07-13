@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const SERVICES = [
   "Fix & Flip",
   "Kitchen & Bath",
@@ -11,12 +13,14 @@ export default function Footer() {
       <div className="mx-auto max-w-[1280px] px-5 pb-8 pt-16 md:px-12 md:pt-[100px]">
         <div className="grid grid-cols-1 gap-12 md:grid-cols-3">
           <div>
-            <p
-              className="font-display text-[22px] font-bold text-background"
-              style={{ letterSpacing: "-0.02em" }}
-            >
-              RHINO
-            </p>
+            <Image
+              src="/rhino/logo-rhino.png"
+              alt="Rhino Construction"
+              width={649}
+              height={204}
+              className="h-[46px] w-auto"
+              style={{ filter: "invert(1)" }}
+            />
             <p className="text-body mt-4 text-background/70">
               Fix &amp; flip contractors. Houston, TX.
             </p>

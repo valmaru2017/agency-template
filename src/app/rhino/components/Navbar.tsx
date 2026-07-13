@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Menu, Phone, X } from "lucide-react";
@@ -77,12 +78,15 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-foreground/[0.08] bg-background">
       <nav className="mx-auto flex h-[72px] max-w-[1280px] items-center justify-between px-5 md:px-12">
-        <Link
-          href="#top"
-          className="font-display text-[22px] font-bold text-foreground"
-          style={{ letterSpacing: "-0.02em" }}
-        >
-          RHINO
+        <Link href="#top" aria-label="Rhino Construction home" className="shrink-0">
+          <Image
+            src="/rhino/logo-rhino.png"
+            alt="Rhino Construction"
+            width={649}
+            height={204}
+            className="h-[30px] w-auto md:h-[37px]"
+            priority
+          />
         </Link>
 
         <ul className="hidden items-center gap-8 md:flex">
