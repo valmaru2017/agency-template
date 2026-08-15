@@ -15,23 +15,33 @@ export const BUSINESS_REGION = "CA";
 export const BUSINESS_AREA_SERVED = "San Diego County";
 
 export const SITE_TITLE =
-  "Neness — Car Detailing San Diego | Mobile Automotive Preservation Specialist";
+  "Neness | Vintage & Luxury Car Preservation — Mobile Detailing in San Diego";
 export const SITE_DESCRIPTION =
-  "Neness is San Diego's mobile car detailing and automotive preservation specialist. Expert detailing, paint correction, and interior restoration for classic and exotic automobiles — performed at your home, office, or private collection.";
+  "Neness offers mobile car preservation in San Diego — expert paint correction and paint decontamination for vintage, classic, luxury, and exotic automobiles, performed at your home, office, or private collection.";
+
+// Primary terms carry the meta description/title; secondary terms round out
+// the <meta name="keywords"> list (low SEO weight today, but harmless and
+// used by some directories/aggregators that still read it).
 export const SITE_KEYWORDS = [
+  // Primary
+  "car preservation San Diego",
+  "vintage car paint correction",
+  "classic car paint decontamination",
+  "vintage car detailing San Diego",
+  "classic car detailing San Diego",
+  "luxury car detailing San Diego",
+  "exotic car detailing San Diego",
+  // Secondary
+  "mobile car detailing San Diego",
+  "mobile auto detailing San Diego",
+  "paint correction San Diego",
   "car detailing San Diego",
-  "detallado de autos San Diego",
-  "mobile car detailing",
-  "automotive preservation",
-  "classic car detailing",
-  "exotic car detailing",
-  "Neness",
-  "San Diego auto detailing",
+  "auto detailing San Diego",
 ];
 
 export const OG_IMAGE = {
   url: `${SITE_URL}/neness/hero.jpg`,
   width: 1200,
   height: 675,
-  alt: "A classic automobile in dramatic studio light — Neness automotive preservation",
+  alt: "A vintage luxury automobile in dramatic studio light — Neness mobile car preservation, San Diego",
 };

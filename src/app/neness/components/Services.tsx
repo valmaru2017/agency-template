@@ -20,9 +20,10 @@ const SERVICES: {
     price: "$275",
     tagline: "Refine & Maintain",
     description:
-      "A meticulous interior and exterior wash, finished with premium protection designed to preserve your vehicle's appearance and keep it looking its best.",
+      "A meticulous interior and exterior wash for vintage and luxury automobiles, finished with premium protection designed to preserve your vehicle's appearance and keep it looking its best.",
     image: "/neness/concours-detail.jpg",
-    imageAlt: "A classic automobile's dashboard and steering wheel after Neness maintenance detailing",
+    imageAlt:
+      "A vintage automobile's dashboard and steering wheel after mobile maintenance detailing in San Diego",
     groups: [],
     time: "3 hours",
   },
@@ -32,9 +33,10 @@ const SERVICES: {
     price: "$595",
     tagline: "Restore & Protect",
     description:
-      "A comprehensive interior and exterior rejuvenation, including paint decontamination, machine polishing, paint correction, and protective finishing.",
+      "A comprehensive interior and exterior rejuvenation for vintage and luxury automobiles, including paint decontamination, machine polishing, paint correction, and protective finishing.",
     image: "/neness/signature-ferrari-f40.jpg",
-    imageAlt: "A glossy exotic sports car after Neness signature paint correction and detailing",
+    imageAlt:
+      "A glossy exotic sports car after mobile paint correction and signature detailing in San Diego",
     imgClassName: "object-cover scale-110",
     groups: [],
     time: "6 hours",
@@ -45,9 +47,9 @@ const SERVICES: {
     price: null,
     tagline: "Preserve & Maintain",
     description:
-      "A highly exclusive service reserved for nine private collections, each entrusted to the care of a dedicated professional guardian.",
+      "A highly exclusive service reserved for nine private collections, each entrusted to the care of a dedicated professional guardian. By consultation.",
     image: "/neness/collection.jpg",
-    imageAlt: "A private collection of classic automobiles under Neness stewardship care",
+    imageAlt: "A private collection of vintage and luxury automobiles under Neness stewardship care",
     groups: [],
     time: "By consultation",
   },
@@ -138,21 +140,23 @@ export default function Services() {
                   ) : null}
                 </div>
 
-                <a
-                  href="https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`group inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans font-medium text-white transition-opacity hover:opacity-90 ${
-                    service.description
-                      ? "mt-3 text-[15px] md:mt-2 md:text-[16px]"
-                      : "mt-6 text-[18px] md:mt-5 md:text-[14px]"
-                  }`}
-                >
-                  Book Now
-                  <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </a>
+                {service.id !== "concours" ? (
+                  <a
+                    href="https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`group inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans font-medium text-white transition-opacity hover:opacity-90 ${
+                      service.description
+                        ? "mt-3 text-[15px] md:mt-2 md:text-[16px]"
+                        : "mt-6 text-[18px] md:mt-5 md:text-[14px]"
+                    }`}
+                  >
+                    Book Now
+                    <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </a>
+                ) : null}
               </div>
             </div>
           </section>

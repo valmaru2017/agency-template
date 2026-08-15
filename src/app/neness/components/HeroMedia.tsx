@@ -37,7 +37,7 @@ export default function HeroMedia() {
     return (
       <Image
         src={HERO_IMAGE_SRC}
-        alt="A single exceptional car in dramatic studio light"
+        alt="A vintage luxury automobile in dramatic studio light — Neness car preservation, San Diego"
         fill
         priority
         sizes="100vw"

@@ -17,10 +17,11 @@ import {
 } from "./seo-config";
 
 // LocalBusiness/AutomotiveBusiness structured data — lets Google show rich
-// results (name, phone, service area) in search. Neness is a mobile
-// detailing service with no public storefront, so this deliberately omits
-// streetAddress and openingHours: neither is published anywhere on the
-// site, and guessing either would show incorrect info in search results.
+// results (name, phone, service area, service catalog) in search. Neness is
+// a mobile detailing service with no public storefront, so this
+// deliberately omits streetAddress and openingHours: neither is published
+// anywhere on the site, and guessing either would show incorrect info in
+// search results.
 const BUSINESS_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "AutomotiveBusiness",
@@ -40,7 +41,43 @@ const BUSINESS_JSON_LD = {
     addressRegion: BUSINESS_REGION,
     addressCountry: "US",
   },
-  description: `Mobile automotive detailing and preservation specialist serving ${BUSINESS_AREA_SERVED}.`,
+  description: `Mobile vintage and luxury car preservation specialist serving ${BUSINESS_AREA_SERVED}, offering mobile paint correction and detailing at the client's home, office, or private collection.`,
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Preservation Services",
+    itemListElement: [
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Maintenance Preservation",
+          description:
+            "Mobile car detailing and paint decontamination wash for vintage and luxury automobiles.",
+          areaServed: BUSINESS_CITY,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Signature Preservation",
+          description:
+            "Mobile paint correction, decontamination, and protective finishing for vintage and luxury automobiles.",
+          areaServed: BUSINESS_CITY,
+        },
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: "Stewardship",
+          description:
+            "An exclusive ongoing care program for private vintage and luxury car collections, by consultation.",
+          areaServed: BUSINESS_CITY,
+        },
+      },
+    ],
+  },
 };
 
 // Calibri itself is a Microsoft-licensed font and can't be embedded as a

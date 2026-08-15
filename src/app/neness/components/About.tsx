@@ -45,7 +45,7 @@ export default function About() {
         >
           <MediaSlot
             src="/neness/about-founder-1.jpg"
-            alt="The founder of Neness beside a preserved classic automobile"
+            alt="Alberto Bracamontes, founder of Neness, beside a preserved vintage automobile in San Diego"
             label="About Neness — founder or workshop photo"
             sizes="(min-width: 768px) 43vw, 100vw"
             imgClassName="object-cover [filter:contrast(1.08)_brightness(0.92)_saturate(0.85)]"

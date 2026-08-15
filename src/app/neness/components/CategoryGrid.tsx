@@ -12,20 +12,20 @@ const CATEGORIES: {
     name: "Maintenance",
     href: "#maintenance",
     image: "/neness/maintenance-foto2002.jpg",
-    alt: "Close-up of a classic automobile's headlight and front fender — Neness maintenance detailing",
+    alt: "Close-up of a vintage automobile's headlight and front fender after mobile maintenance detailing in San Diego",
     imgClassName: "[filter:saturate(0.7)_brightness(0.85)_contrast(1.1)]",
   },
   {
     name: "Signature",
     href: "#signature",
     image: "/neness/restoration.jpg",
-    alt: "A classic automobile under dramatic studio lighting — Neness signature detailing",
+    alt: "A classic automobile under dramatic studio lighting after vintage car paint correction",
   },
   {
     name: "Stewardship",
     href: "#concours",
     image: "/neness/interiors.jpg",
-    alt: "Close-up of a preserved leather interior and trim — Neness stewardship care",
+    alt: "Close-up of a preserved luxury leather interior and trim — Neness stewardship care",
   },
 ];
 

@@ -32,7 +32,7 @@ export default function MobileService() {
         >
           <MediaSlot
             src="/neness/porsche-garage-hq.png"
-            alt="A classic Porsche parked in a private garage"
+            alt="A classic Porsche prepared for mobile car detailing at a private garage in San Diego"
             label="Private garage — wide context shot"
             sizes="(min-width: 960px) 960px, 100vw"
           />
