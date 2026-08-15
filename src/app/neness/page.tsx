@@ -4,6 +4,7 @@ import CategoryGrid from "./components/CategoryGrid";
 import About from "./components/About";
 import Recognition from "./components/Recognition";
 import Testimonials from "./components/Testimonials";
+import FAQ from "./components/FAQ";
 import Services from "./components/Services";
 import MobileService from "./components/MobileService";
 import Footer from "./components/Footer";
@@ -21,6 +22,7 @@ export default function NenessPage() {
         <About />
         <Recognition />
         <Testimonials />
+        <FAQ />
       </main>
       <Footer />
     </ScrollAnimations>
