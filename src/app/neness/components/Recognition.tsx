@@ -26,7 +26,7 @@ export default function Recognition() {
     <section id="recognition" className="bg-surface-light px-5 pb-20 pt-16 text-ink md:px-12 md:pb-24 md:pt-20">
       <div className="content-shell">
         <div>
-          <h2 className="text-statement-wrap text-center text-ink md:text-left">
+          <h2 className="text-statement-wrap text-ink">
             The work speaks for itself.
           </h2>
           <p className="text-body-l mt-4 text-ink-muted md:whitespace-nowrap">
