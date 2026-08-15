@@ -9,6 +9,7 @@ const SERVICES: {
   tagline: string;
   description?: string;
   image: string;
+  imageAlt: string;
   imgClassName?: string;
   groups: ServiceGroup[];
   time: string;
@@ -21,6 +22,7 @@ const SERVICES: {
     description:
       "A meticulous interior and exterior wash, finished with premium protection designed to preserve your vehicle's appearance and keep it looking its best.",
     image: "/neness/concours-detail.jpg",
+    imageAlt: "A classic automobile's dashboard and steering wheel after Neness maintenance detailing",
     groups: [],
     time: "3 hours",
   },
@@ -32,6 +34,7 @@ const SERVICES: {
     description:
       "A comprehensive interior and exterior rejuvenation, including paint decontamination, machine polishing, paint correction, and protective finishing.",
     image: "/neness/signature-ferrari-f40.jpg",
+    imageAlt: "A glossy exotic sports car after Neness signature paint correction and detailing",
     imgClassName: "object-cover scale-110",
     groups: [],
     time: "6 hours",
@@ -44,6 +47,7 @@ const SERVICES: {
     description:
       "A highly exclusive service reserved for nine private collections, each entrusted to the care of a dedicated professional guardian.",
     image: "/neness/collection.jpg",
+    imageAlt: "A private collection of classic automobiles under Neness stewardship care",
     groups: [],
     time: "By consultation",
   },
@@ -88,7 +92,7 @@ export default function Services() {
               >
                 <MediaSlot
                   src={service.image}
-                  alt={service.name}
+                  alt={service.imageAlt}
                   label={`${service.name} — detail shot`}
                   sizes="(min-width: 768px) 45vw, 100vw"
                   imgClassName={service.imgClassName ?? "object-cover"}

@@ -1,22 +1,31 @@
 import { ArrowRight } from "lucide-react";
 import MediaSlot from "./MediaSlot";
 
-const CATEGORIES: { name: string; href: string; image: string; imgClassName?: string }[] = [
+const CATEGORIES: {
+  name: string;
+  href: string;
+  image: string;
+  alt: string;
+  imgClassName?: string;
+}[] = [
   {
     name: "Maintenance",
     href: "#maintenance",
     image: "/neness/maintenance-foto2002.jpg",
+    alt: "Close-up of a classic automobile's headlight and front fender — Neness maintenance detailing",
     imgClassName: "[filter:saturate(0.7)_brightness(0.85)_contrast(1.1)]",
   },
   {
     name: "Signature",
     href: "#signature",
     image: "/neness/restoration.jpg",
+    alt: "A classic automobile under dramatic studio lighting — Neness signature detailing",
   },
   {
     name: "Stewardship",
     href: "#concours",
     image: "/neness/interiors.jpg",
+    alt: "Close-up of a preserved leather interior and trim — Neness stewardship care",
   },
 ];
 
@@ -43,14 +52,14 @@ export default function CategoryGrid() {
           >
             <MediaSlot
               src={category.image}
-              alt={category.name}
+              alt={category.alt}
               label={category.name}
               sizes="(min-width: 768px) 33vw, 100vw"
               imgClassName={`object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05] ${category.imgClassName ?? ""}`}
             />
             <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 flex items-end justify-between p-4 md:p-5">
-              <h2 className="text-display-m text-foreground">{category.name}</h2>
+              <h3 className="text-display-m text-foreground">{category.name}</h3>
               <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-foreground/15 text-foreground backdrop-blur transition-transform duration-500 ease-out group-hover:translate-x-1 group-hover:bg-foreground/25">
                 <ArrowRight size={16} aria-hidden="true" />
               </span>
