@@ -6,7 +6,7 @@ import { useState, type FormEvent } from "react";
 // 1) Create a form at https://formspree.io (free tier is fine).
 // 2) Paste your form endpoint below, replacing the placeholder URL.
 //    It looks like: https://formspree.io/f/xxxxxxxx
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdenlejv";
 // ─────────────────────────────────────────────────────────────────────────
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
