@@ -1,0 +1,248 @@
+@import "tailwindcss";
+
+:root {
+  /* Dark bookends — hero and footer/contact only. */
+  --background: #0a0a0a;
+  --surface-graphite: #0a0a0a;
+  --foreground: #f5f5f5;
+  --muted: #8f8b85;
+
+  /* Warm-white body — services grid, detail sections, trust strip.
+     A hard cut from the dark hero into this, Porsche-style. */
+  --surface-light: #f4f2ee;
+  --surface-light-alt: #eae7e0;
+  --ink: #141210;
+  --ink-muted: #6b655c;
+
+  /* Monochrome system: silver/light-gray, used only for hovers and thin
+     lines — never as a strong/static color. (Still referenced by
+     CategoryGrid.tsx's tiles too, but those never used red — their arrows
+     are `text-foreground` — so this change doesn't touch that section.) */
+  --accent: #c7c9cc;
+
+  /* About + Recognition. About is a warm off-white distinct from the rest
+     of the light body (--surface-light); Recognition is a near-black
+     bookend, same monochrome palette as the rest of the site. */
+  --surface-warm: #f2f0ec;
+  --near-black: #0a0a0a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface-graphite: var(--surface-graphite);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-surface-light: var(--surface-light);
+  --color-surface-light-alt: var(--surface-light-alt);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-surface-warm: var(--surface-warm);
+  --color-near-black: var(--near-black);
+  --font-display: Calibri, var(--font-carlito);
+  --font-sans: var(--font-inter-neness);
+}
+
+/* Single source of truth for the "Preservation Services" tiles and the
+   Maintenance/Signature/Concours detail blocks: both sections wrap their
+   content in this exact class so their outer edges are mathematically
+   guaranteed to align, on every screen size, instead of relying on two
+   files independently repeating the same max-width/padding values. */
+.content-shell {
+  width: 100%;
+  max-width: 1180px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Scoped to this class (not `body`) since layout.tsx no longer renders its
+   own <body> — the CSS variables above are defined on this same element via
+   its className, and variables only cascade to descendants, not ancestors. */
+.neness-root {
+  min-height: 100svh;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Mobile typography scale, Porsche-style: bold, confident, fluid.
+   Every clamp() below shares the same preferred/ceiling values as before —
+   they already reach their max at md widths (768px) and beyond, so desktop
+   renders pixel-identical. Only the mobile floor (the value that governs
+   phones, roughly <700px) was raised across the board for hierarchy:
+     Hero H1            -> 44px floor (was 40px)
+     Section titles      -> 32px floor (was 23px)
+     Service card names  -> 30px floor (was 24px)
+     Tile names / prices -> 22px floor (was 20px) */
+.text-display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(44px, 6.3vw, 89px);
+  line-height: 1.05;
+  letter-spacing: normal;
+}
+
+/* The one shared heading size for every section title below the hero
+   (Preservation Services, service names, About, final CTA, etc). Fluid
+   with a floor high enough to read as a real title on phones, instead of
+   shrinking to the point of illegibility. */
+.text-statement {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 4.6vw, 46px);
+  line-height: 1.15;
+  letter-spacing: normal;
+  white-space: nowrap;
+}
+
+/* Same size/weight/line-height as .text-statement, for headings whose
+   copy is too long to hold on one line at that size — wraps normally
+   instead of forcing nowrap and overflowing on narrow screens. */
+.text-statement-wrap {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(32px, 4.6vw, 46px);
+  line-height: 1.15;
+  letter-spacing: normal;
+}
+
+.text-mobile-intro-heading {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(25px, 4.6vw, 46px);
+  line-height: 1.15;
+  letter-spacing: normal;
+}
+
+.text-service-name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(30px, 4.6vw, 46px);
+  line-height: 1.15;
+  letter-spacing: normal;
+}
+
+.text-display-m {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(22px, 2vw, 28px);
+  line-height: 1.25;
+  letter-spacing: normal;
+}
+
+/* Mobile nav overlay links only (Services/Contact) — smaller and tighter
+   than .text-display-m so the fullscreen menu reads editorial, not oversized. */
+.text-nav-mobile {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 2.1;
+  letter-spacing: -0.01em;
+}
+
+.text-body-l {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.text-body {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.text-meta {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+
+/* Mobile-only: body copy (paragraphs) reads 2px larger below the md
+   breakpoint. Desktop sizes (set above) are untouched. */
+@media (max-width: 767px) {
+  .text-body {
+    font-size: 18px;
+  }
+}
+
+/* Mobile-only: unify every section title (from "Exceptional care..." down)
+   to that section's mobile size, and every secondary paragraph to the same
+   size as its "We bring our expertise..." copy. Desktop clamp()s above are
+   untouched. */
+@media (max-width: 767px) {
+  .text-statement,
+  .text-statement-wrap,
+  .text-service-name {
+    font-size: 25px;
+    line-height: 1.15;
+  }
+  .text-body-l {
+    font-size: 15px;
+    line-height: 1.45;
+  }
+}
+
+/* Mobile-only hero headline override: the reference layout wants a
+   compact 32px headline low on the screen, not the bold/oversized
+   treatment used everywhere else. Desktop clamp() above is untouched. */
+@media (max-width: 767px) {
+  .text-display-xl {
+    font-size: 35px;
+    line-height: 1.05;
+  }
+}
+
+/* Desktop-only hero headline: 5px smaller than the base clamp() above.
+   Mobile override above is untouched. */
+@media (min-width: 768px) {
+  .text-display-xl {
+    font-size: calc(clamp(44px, 6.3vw, 89px) - 5px);
+  }
+}
+
+/* Keep all interactive elements' keyboard focus visible on both the dark and light surfaces. */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* Ken Burns fallback for the hero when a still image stands in for video. */
+@keyframes kenburns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.04);
+  }
+}
+.animate-kenburns {
+  animation: kenburns 24s ease-in-out infinite alternate;
+}
+
+/* Slow-breathing scroll indicator. */
+@keyframes slow-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.9;
+  }
+}
+.animate-slow-pulse {
+  animation: slow-pulse 2.8s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-kenburns,
+  .animate-slow-pulse {
+    animation: none;
+  }
+}
