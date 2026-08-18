@@ -81,7 +81,7 @@
 }
 
 /* H2 — every section title (Preservation Services, "Hands behind the
-   work", "The work speaks for itself", final CTA, FAQ, etc).
+   work", "The work speaks for itself", final CTA, etc).
    30px mobile / 44px desktop. */
 .text-statement,
 .text-statement-wrap,
@@ -132,6 +132,19 @@
   font-size: clamp(14px, 1vw, 16px);
   line-height: 1.6;
   font-weight: 400;
+}
+
+/* Footer body copy only — restored to its pre-reduction size (15px mobile /
+   16px desktop) since the footer's contact/services text reads too small
+   at the shared .text-body size. Scoped to <footer> so every other use of
+   .text-body (About, Testimonials, etc.) is unaffected. */
+footer .text-body {
+  font-size: 15px;
+}
+@media (min-width: 768px) {
+  footer .text-body {
+    font-size: 16px;
+  }
 }
 
 /* Eyebrow/label — small uppercase tags. 11px floor / 12px ceiling. */

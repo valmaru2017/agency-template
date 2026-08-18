@@ -2,9 +2,9 @@
 // robots, JSON-LD). Change the business/domain facts here once instead of
 // hunting through layout.tsx, sitemap.ts, robots.ts, and the JSON-LD block.
 
-// PLACEHOLDER — swap in the real production domain before launch (also
-// updates the canonical tag, OG/Twitter urls, sitemap, and robots.txt,
-// since everything below is derived from this one constant).
+// Confirmed production domain — drives the canonical tag, OG/Twitter urls,
+// sitemap, and robots.txt, since everything below is derived from this one
+// constant.
 export const SITE_URL = "https://www.neness.com";
 export const SITE_PATH = "/neness";
 export const SITE_PAGE_URL = `${SITE_URL}${SITE_PATH}`;
