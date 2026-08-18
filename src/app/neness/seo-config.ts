@@ -24,27 +24,27 @@ export const BUSINESS_AREAS_SERVED = [
   "Los Angeles County",
 ];
 
-export const SITE_TITLE = "Neness — Luxury Mobile Car Detailing in San Diego";
+export const SITE_TITLE = "Exotic & Classic Car Detailing San Diego | Neness";
 export const SITE_DESCRIPTION =
-  "Expert mobile detailing and preservation for classic, exotic, and collector automobiles across San Diego, Orange County, and Los Angeles.";
+  "Mobile luxury detailing for classic, exotic, and collector cars in San Diego. Concours-level paint care, brought to your home or private collection.";
 
 // Primary terms carry the meta description/title; secondary terms round out
 // the <meta name="keywords"> list (low SEO weight today, but harmless and
 // used by some directories/aggregators that still read it).
 export const SITE_KEYWORDS = [
   // Primary
+  "exotic car detailing San Diego",
+  "classic car detailing San Diego",
   "luxury car detailing San Diego",
   "mobile car detailing San Diego",
-  "exotic car detailing",
-  "classic car detailing",
   "collector car detailing",
-  "car preservation San Diego",
   "paint correction San Diego",
+  "car preservation San Diego",
   // Secondary
+  "Porsche detailing San Diego",
+  "Ferrari detailing San Diego",
   "exotic car detailing Orange County",
   "exotic car detailing Los Angeles",
-  "vintage car detailing San Diego",
-  "mobile auto detailing San Diego",
 ];
 
 export const OG_IMAGE = {

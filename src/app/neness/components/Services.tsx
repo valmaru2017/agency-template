@@ -48,7 +48,7 @@ const SERVICES: {
     description:
       "A highly exclusive service reserved for nine private collections, each entrusted to the care of a dedicated professional guardian. By consultation.",
     image: "/neness/collection.jpg",
-    imageAlt: "A private collection of vintage and luxury automobiles under Neness stewardship care",
+    imageAlt: "A private collection of vintage, luxury, and collector automobiles under Neness stewardship care in San Diego",
     groups: [],
     time: "By consultation",
   },

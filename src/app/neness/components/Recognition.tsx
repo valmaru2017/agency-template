@@ -155,7 +155,7 @@ export default function Recognition() {
         <div className="relative left-1/2 hidden w-screen -translate-x-1/2 bg-black md:block">
           <Image
             src="/neness/fer.png"
-            alt="Close-up of a red Ferrari's front fender and wheel in dramatic studio lighting"
+            alt="Close-up of a red Ferrari's front fender and wheel — Neness exotic car preservation, San Diego"
             width={5057}
             height={1255}
             sizes="100vw"
