@@ -105,10 +105,10 @@ export default function Footer() {
                   {PHONE}
                 </a>
                 <a
-                  href="mailto:alberto@neness.com"
+                  href="mailto:info@neness.com"
                   className="text-body text-muted transition-opacity hover:opacity-70"
                 >
-                  alberto@neness.com
+                  info@neness.com
                 </a>
                 <span className="text-body text-muted">
                   Serving Southern California

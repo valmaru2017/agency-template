@@ -13,7 +13,7 @@ export const BUSINESS_NAME = "Neness";
 export const BUSINESS_LEGAL_NAME = "Neness Automotive Preservation";
 export const BUSINESS_PHONE = "858-224-2312";
 export const BUSINESS_PHONE_E164 = "+18582242312";
-export const BUSINESS_EMAIL = "alberto@neness.com";
+export const BUSINESS_EMAIL = "info@neness.com";
 export const BUSINESS_CITY = "San Diego";
 export const BUSINESS_REGION = "CA";
 // Matches the footer's travel-fee note — same three counties, kept in one
