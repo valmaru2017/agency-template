@@ -76,7 +76,7 @@ export default function Services() {
           <section
             key={service.id}
             id={service.id}
-            className="bg-surface-light px-5 py-14 md:px-12 md:py-16"
+            className="bg-white px-5 py-14 md:px-12 md:py-16"
           >
             <div
               className={`content-shell grid grid-cols-1 items-stretch gap-0 md:grid-cols-[1fr_1fr] ${

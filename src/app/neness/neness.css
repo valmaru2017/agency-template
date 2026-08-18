@@ -71,24 +71,24 @@
    jumping at the md breakpoint. Titles carry a slight negative tracking so
    the light weight reads as deliberate and compact rather than just thin. */
 
-/* H1 — hero headline only. 32px floor / 60px ceiling. */
+/* H1 — hero headline only. 44px mobile / 76px desktop. */
 .text-display-xl {
   font-family: var(--font-display);
   font-weight: 400;
-  font-size: clamp(32px, 6vw, 60px);
+  font-size: 44px;
   line-height: 1.05;
   letter-spacing: -0.02em;
 }
 
 /* H2 — every section title (Preservation Services, "Hands behind the
    work", "The work speaks for itself", final CTA, FAQ, etc).
-   24px floor / 36px ceiling. */
+   30px mobile / 44px desktop. */
 .text-statement,
 .text-statement-wrap,
 .text-mobile-intro-heading {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(24px, 4vw, 36px);
+  font-size: 30px;
   line-height: 1.15;
   letter-spacing: -0.02em;
 }
@@ -97,12 +97,12 @@
 }
 
 /* H3 — service names (Maintenance/Signature/Stewardship) and other
-   card-level titles. 20px floor / 26px ceiling. */
+   card-level titles. 24px mobile / 30px desktop. */
 .text-service-name,
 .text-display-m {
   font-family: var(--font-display);
   font-weight: 300;
-  font-size: clamp(20px, 3vw, 26px);
+  font-size: 24px;
   line-height: 1.2;
   letter-spacing: -0.02em;
 }
@@ -143,17 +143,37 @@
   font-weight: 500;
 }
 
+@media (min-width: 768px) {
+  .text-display-xl {
+    font-size: 76px;
+  }
+  .text-statement,
+  .text-statement-wrap,
+  .text-mobile-intro-heading {
+    font-size: 44px;
+  }
+  .text-service-name,
+  .text-display-m {
+    font-size: 30px;
+  }
+}
+
 /* Recognition section heading only. Set in Manrope (the nav's face) at
    uppercase/wide tracking rather than the site's usual Cormorant H2 style —
    a deliberate bridge between the nav's sans face and the serif content
-   below it, not a scaled-down H2. 13px floor / 15px ceiling. */
+   below it, not a scaled-down H2. 16px mobile / 20px desktop. */
 .text-recognition-heading {
   font-family: var(--font-sans);
   font-weight: 500;
-  font-size: clamp(13px, 1.3vw, 15px);
+  font-size: 16px;
   line-height: 1.4;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+@media (min-width: 768px) {
+  .text-recognition-heading {
+    font-size: 20px;
+  }
 }
 
 /* Keep all interactive elements' keyboard focus visible on both the dark and light surfaces. */
