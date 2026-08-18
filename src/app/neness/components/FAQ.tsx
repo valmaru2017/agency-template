@@ -48,7 +48,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="bg-surface-light px-5 py-20 text-ink md:px-12 md:py-24"
+      className="bg-white px-5 py-20 text-ink md:px-12 md:py-24"
     >
       <script
         type="application/ld+json"

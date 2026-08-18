@@ -16,7 +16,7 @@ export default function Footer() {
           of the footer. */}
       <section
         id="contact"
-        className="bg-surface-warm px-5 py-28 md:px-12 md:py-36"
+        className="bg-white px-5 pb-28 pt-14 md:px-12 md:pb-36 md:pt-16"
       >
         <div className="content-shell grid grid-cols-1 gap-14 md:grid-cols-[45fr_55fr] md:items-center md:gap-12">
           <div className="flex flex-col items-start text-left">
@@ -86,7 +86,12 @@ export default function Footer() {
                 <ShieldMark className="h-8 w-auto" />
               </div>
               <p className="text-body mt-4 text-muted">
-                Automotive preservation specialist. San Diego.
+                Automotive preservation specialist.
+              </p>
+              <p className="text-body mt-4 text-muted">
+                Prices shown apply to San Diego County. Additional travel
+                fees may apply to appointments in Orange County and Los
+                Angeles County.
               </p>
             </div>
 
@@ -99,8 +104,14 @@ export default function Footer() {
                 >
                   {PHONE}
                 </a>
+                <a
+                  href="mailto:alberto@neness.com"
+                  className="text-body text-muted transition-opacity hover:opacity-70"
+                >
+                  alberto@neness.com
+                </a>
                 <span className="text-body text-muted">
-                  Serving San Diego County
+                  Serving Southern California
                 </span>
               </div>
             </div>

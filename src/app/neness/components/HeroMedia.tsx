@@ -24,6 +24,10 @@ export default function HeroMedia() {
       <video
         className="absolute inset-0 h-full w-full object-cover object-[50%_38%] md:object-[62%_50%]"
         src={HERO_VIDEO_SRC}
+        // Paints instantly instead of a blank/black frame while the video
+        // loads — same still frame the Ken Burns fallback below uses, so
+        // there's no visible swap once the video takes over.
+        poster={HERO_IMAGE_SRC ?? undefined}
         autoPlay
         muted
         loop

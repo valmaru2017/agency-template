@@ -10,7 +10,7 @@ export default function About() {
         <div className="order-2 flex flex-col items-start justify-center text-left md:order-1">
           <h2
             data-anim="section-header"
-            className="text-service-name mt-4 w-full max-w-none text-left text-foreground"
+            className="text-statement-wrap mt-4 w-full max-w-none text-left text-foreground"
           >
             Hands behind the work
           </h2>

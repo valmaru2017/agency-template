@@ -17,27 +17,26 @@ const SERVICES: {
   {
     id: "maintenance",
     name: "Maintenance",
-    price: "$275",
+    price: "$300",
     tagline: "Refine & Maintain",
     description:
-      "A meticulous interior and exterior wash for vintage and luxury automobiles, finished with premium protection designed to preserve your vehicle's appearance and keep it looking its best.",
-    image: "/neness/concours-detail.jpg",
+      "A meticulous interior cleaning and exterior hand wash for vintage, luxury, and collector automobiles, including paint decontamination and protective treatment designed to preserve the vehicle's finish and character.",
+    image: "/neness/porsche-garage-hq.png",
     imageAlt:
-      "A vintage automobile's dashboard and steering wheel after mobile maintenance detailing in San Diego",
+      "A classic Porsche in a private garage after mobile car detailing in San Diego",
     groups: [],
     time: "3 hours",
   },
   {
     id: "signature",
     name: "Signature",
-    price: "$595",
+    price: "$600",
     tagline: "Restore & Protect",
     description:
       "A comprehensive interior and exterior rejuvenation for vintage and luxury automobiles, including paint decontamination, machine polishing, paint correction, and protective finishing.",
-    image: "/neness/signature-ferrari-f40.jpg",
+    image: "/neness/mgb.jpg",
     imageAlt:
-      "A glossy exotic sports car after mobile paint correction and signature detailing in San Diego",
-    imgClassName: "object-cover scale-110",
+      "A classic MGB's leather interior after mobile paint correction and detailing in San Diego",
     groups: [],
     time: "6 hours",
   },
@@ -125,15 +124,24 @@ export default function Services() {
                       {service.description}
                     </p>
                   ) : null}
-                  <p
-                    className={`text-meta text-foreground/70 ${
-                      service.description ? "mt-8 md:mt-10" : "mt-4 md:mt-3"
-                    }`}
-                  >
-                    {service.id === "concours"
-                      ? service.time
-                      : `Estimated time: ${service.time}`}
-                  </p>
+                  {service.id === "concours" ? (
+                    <a
+                      href="#appointment-form"
+                      className={`text-meta text-foreground/70 underline-offset-4 transition-colors hover:text-foreground hover:underline ${
+                        service.description ? "mt-8 md:mt-10" : "mt-4 md:mt-3"
+                      }`}
+                    >
+                      {service.time}
+                    </a>
+                  ) : (
+                    <p
+                      className={`text-meta text-foreground/70 ${
+                        service.description ? "mt-8 md:mt-10" : "mt-4 md:mt-3"
+                      }`}
+                    >
+                      {`Estimated time: ${service.time}`}
+                    </p>
+                  )}
 
                   {service.groups.length > 0 ? (
                     <IncludesList groups={service.groups} />

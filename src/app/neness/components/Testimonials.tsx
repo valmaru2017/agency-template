@@ -1,7 +1,7 @@
 const TESTIMONIALS = [
   {
     quote:
-      "Excellent service from start to finish. Incredible attention to detail, professionalism, and care for my car. The results were fantastic—I highly recommend it and will definitely use them again!",
+      "Excellent service from start to finish. Incredible attention to detail, professionalism, and care for my car. The results were fantastic, I highly recommend it and will definitely use them again!",
     name: "Sam Parsons",
     car: "1971 Alfa Romeo Giulia 1600 Super",
   },
@@ -21,12 +21,9 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section
-      className="px-5 py-20 text-foreground md:px-12 md:py-24"
-      style={{ background: "#111110" }}
-    >
+    <section className="bg-white px-5 pb-10 pt-20 text-ink md:px-12 md:pb-12 md:pt-24">
       <div className="content-shell">
-        <h2 className="text-statement-wrap text-center text-foreground md:text-left">
+        <h2 className="text-statement-wrap text-center text-ink md:text-left">
           What our clients say about us
         </h2>
 

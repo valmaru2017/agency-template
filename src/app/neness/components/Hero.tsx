@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import HeroMedia from "./HeroMedia";
 
 export default function Hero() {
@@ -32,7 +31,7 @@ export default function Hero() {
       {/* Mobile: bottom-anchored with a fixed ~1cm gap to the hero's edge —
           constant across every phone height, since it's a fixed unit, not
           vh-based. Desktop (md:) restores the original layout, untouched. */}
-      <div className="relative mx-auto flex h-full max-w-[1280px] flex-col justify-end px-[28px] pb-[1cm] md:px-[1cm] md:pb-[22.1vh]">
+      <div className="relative mx-auto flex h-full max-w-[1280px] flex-col justify-end px-[28px] pb-[calc(1cm+1cm)] md:px-[1cm] md:pb-[calc(22.1vh+1cm)]">
         <div className="max-w-[300px] md:max-w-[900px]">
           <h1 className="text-display-xl text-foreground">
             {/* pb + matching -mb on these two: the line-reveal mask (overflow-hidden)
@@ -42,7 +41,8 @@ export default function Hero() {
                 interlineado as before, g/p just aren't cut off anymore. */}
             <span className="block overflow-hidden pb-[0.3em] -mb-[0.3em]">
               <span data-anim="headline-line" className="inline-block">
-                Preserving
+                Preser
+                <span className="ml-[0.02em] inline-block">ving</span>
               </span>
             </span>
             <span className="block overflow-hidden pb-[0.3em] -mb-[0.3em]">
@@ -61,23 +61,8 @@ export default function Hero() {
             data-anim="hero-meta"
             className="mt-4 max-w-[300px] font-sans text-[15px] leading-[1.45] text-foreground/80 md:mt-6 md:max-w-[56ch] md:text-[18px] md:leading-[1.5]"
           >
-            Expert care performed at your place on your schedule.
+            Expert care for classic, exotic, and collector automobiles at your location.
           </p>
-
-          <a
-            href="https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services"
-            target="_blank"
-            rel="noopener noreferrer"
-            data-anim="hero-meta"
-            className="group mt-3 inline-flex items-center gap-2 border-b border-foreground/50 pb-1.5 font-sans text-[15px] font-medium leading-[1.6] text-foreground transition-colors hover:border-foreground md:mt-9 md:text-[16px]"
-          >
-            Book now
-            <ArrowRight
-              size={16}
-              className="text-foreground transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent"
-              aria-hidden="true"
-            />
-          </a>
         </div>
       </div>
     </section>
