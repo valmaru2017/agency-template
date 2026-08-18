@@ -10,6 +10,12 @@ import { Video as VideoIcon } from "lucide-react";
 // result, not the process.
 const HERO_VIDEO_SRC: string | null = "/neness/hero.mp4";
 const HERO_IMAGE_SRC: string | null = "/neness/hero.jpg"; // Ken Burns fallback if no video
+// Video poster — an actual frame pulled from hero.mp4 (t=3.667s, the car
+// level/fully revealed in profile) rather than hero.jpg, since that's a
+// different car entirely (it's only used for the Ken Burns fallback above
+// and for OG/JSON-LD in seo-config.ts). Same 1920x1080 as the video so the
+// object-position crop below lines up identically between poster and video.
+const HERO_POSTER_SRC = "/neness/hero-poster.jpg";
 
 export default function HeroMedia() {
   if (HERO_VIDEO_SRC) {
@@ -25,9 +31,9 @@ export default function HeroMedia() {
         className="absolute inset-0 h-full w-full object-cover object-[50%_38%] md:object-[62%_50%]"
         src={HERO_VIDEO_SRC}
         // Paints instantly instead of a blank/black frame while the video
-        // loads — same still frame the Ken Burns fallback below uses, so
-        // there's no visible swap once the video takes over.
-        poster={HERO_IMAGE_SRC ?? undefined}
+        // loads — an actual frame from this same video, so there's no
+        // visible swap once the video takes over.
+        poster={HERO_POSTER_SRC}
         autoPlay
         muted
         loop
