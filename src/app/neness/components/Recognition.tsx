@@ -7,19 +7,20 @@ import Image from "next/image";
 const PRESERVATION_COPY_P1 = (
   <>
     Automobile preservation is a specialized service dedicated to the care
-    of classic, exotic, and collectible automobiles, vehicles where
-    condition, originality, and craftsmanship matter. Our expertise includes
-    the proper care of vintage paint, delicate finishes, leather, and
-    original upholstery, using methods suited to the age, materials, and
+    of classic, exotic, and collectible automobiles. These are vehicles in
+    which condition, originality, and craftsmanship matter. Our expertise
+    includes the proper care of vintage paint, delicate finishes, leather,
+    and original upholstery, using methods suited to the age, materials, and
     character of each automobile.
   </>
 );
 
 const PRESERVATION_COPY_P2 = (
   <>
-    We provide this level of specialized care at your home, private garage,
-    or preferred location, preserving valuable automobiles without ever
-    leaving your garage.
+    We bring our expertise directly to your home, private garage, or
+    preferred location, providing a discreet and highly personalized
+    service while eliminating the need to transport your automobile to a
+    traditional detailing facility.
   </>
 );
 
