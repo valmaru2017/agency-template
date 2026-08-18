@@ -32,7 +32,7 @@ export default function HeroMedia() {
         muted
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
       />
     );
   }

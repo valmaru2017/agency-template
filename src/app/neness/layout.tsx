@@ -45,7 +45,7 @@ const BUSINESS_JSON_LD = {
     addressRegion: BUSINESS_REGION,
     addressCountry: "US",
   },
-  description: `Mobile luxury, exotic, and classic car detailing and preservation specialist serving ${BUSINESS_AREAS_SERVED.join(", ")}, offering paint correction and paint decontamination at the client's home, office, or private collection.`,
+  description: `Mobile luxury, classic, and exotic car detailing and preservation specialist serving ${BUSINESS_AREAS_SERVED.join(", ")}, offering paint correction and paint decontamination at the client's home, office, or private collection.`,
   hasOfferCatalog: {
     "@type": "OfferCatalog",
     name: "Preservation Services",
