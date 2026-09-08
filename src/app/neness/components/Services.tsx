@@ -59,7 +59,7 @@ const SERVICES: {
           "Battery voltage check + tender hookup",
           "Tire pressure check",
           "Quick visual scan for leaks/pests",
-          "Starting the engine and letting it run/idle (or a short drive around the block if authorized)",
+          "Starting the engine and letting it run/idle (or a short drive around the block if requested)",
           "Cabin moisture/odor check",
           "Dust wipe-down",
           "Photo and short written report sent same day",
