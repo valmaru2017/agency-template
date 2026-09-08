@@ -13,6 +13,9 @@ const SERVICES: {
   imgClassName?: string;
   groups: ServiceGroup[];
   time: string;
+  // Stewardship only — replaces the single time/price slot with two
+  // membership tiers instead of one number, since it isn't a flat price.
+  pricingLines?: string[];
 }[] = [
   {
     id: "maintenance",
@@ -46,11 +49,28 @@ const SERVICES: {
     price: null,
     tagline: "Preserve & Maintain",
     description:
-      "A highly exclusive service reserved for nine private collections, each entrusted to the care of a dedicated professional guardian. By consultation.",
+      "A highly exclusive service reserved for a limited number of private collections, each entrusted to the care of a dedicated professional guardian.",
     image: "/neness/collection.jpg",
     imageAlt: "A private collection of vintage, luxury, and collector automobiles under Neness stewardship care in San Diego",
-    groups: [],
+    groups: [
+      {
+        label: null,
+        items: [
+          "Battery voltage check + tender hookup",
+          "Tire pressure check",
+          "Quick visual scan for leaks/pests",
+          "Starting the engine and letting it run/idle (or a short drive around the block if authorized)",
+          "Cabin moisture/odor check",
+          "Dust wipe-down",
+          "Photo and short written report sent same day",
+        ],
+      },
+    ],
     time: "By consultation",
+    pricingLines: [
+      "2 visits per month — $150 one car, $100 extra car",
+      "4 visits per month — $300 one car, $200 extra car",
+    ],
   },
 ];
 
@@ -58,9 +78,9 @@ function IncludesList({ groups }: { groups: (typeof SERVICES)[number]["groups"] 
   const items = groups.flatMap((group) => group.items);
 
   return (
-    <div className="mt-2 flex flex-col items-start">
+    <div className="mt-8 flex flex-col items-start md:mt-10">
       <p className="text-meta text-foreground/70">What&apos;s included</p>
-      <p className="mt-1 max-w-none text-left text-[13px] leading-tight text-foreground/85">
+      <p className="mt-2 max-w-none text-left text-[13px] leading-tight text-foreground/85">
         {items.join(" · ")}
       </p>
     </div>
@@ -85,7 +105,9 @@ export default function Services() {
             >
               <div
                 data-anim="service-photo"
-                className={`relative h-[300px] w-full overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] md:h-[366px] md:[direction:ltr] ${
+                className={`relative h-[300px] w-full overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] md:[direction:ltr] ${
+                  service.id === "concours" ? "md:h-auto" : "md:h-[366px]"
+                } ${
                   flipped
                     ? "md:rounded-tl-none md:rounded-tr-[2rem] md:rounded-bl-none md:rounded-br-[2rem]"
                     : "md:rounded-tl-[2rem] md:rounded-tr-none md:rounded-bl-[2rem] md:rounded-br-none"
@@ -101,7 +123,9 @@ export default function Services() {
               </div>
 
               <div
-                className={`flex flex-col items-start justify-between overflow-hidden rounded-bl-[2rem] rounded-br-[2rem] bg-surface-graphite px-8 py-10 text-left md:h-[366px] md:px-12 md:py-8 md:[direction:ltr] ${
+                className={`flex flex-col items-start justify-between overflow-hidden rounded-bl-[2rem] rounded-br-[2rem] bg-surface-graphite px-8 py-10 text-left md:px-12 md:py-8 md:[direction:ltr] ${
+                  service.id === "concours" ? "md:h-auto" : "md:h-[366px]"
+                } ${
                   flipped
                     ? "md:rounded-tl-[2rem] md:rounded-tr-none md:rounded-bl-[2rem] md:rounded-br-none"
                     : "md:rounded-tl-none md:rounded-tr-[2rem] md:rounded-bl-none md:rounded-br-[2rem]"
@@ -124,16 +148,7 @@ export default function Services() {
                       {service.description}
                     </p>
                   ) : null}
-                  {service.id === "concours" ? (
-                    <a
-                      href="#appointment-form"
-                      className={`text-meta text-foreground/70 underline-offset-4 transition-colors hover:text-foreground hover:underline ${
-                        service.description ? "mt-8 md:mt-10" : "mt-4 md:mt-3"
-                      }`}
-                    >
-                      {service.time}
-                    </a>
-                  ) : (
+                  {service.id === "concours" ? null : (
                     <p
                       className={`text-meta text-foreground/70 ${
                         service.description ? "mt-8 md:mt-10" : "mt-4 md:mt-3"
@@ -146,9 +161,32 @@ export default function Services() {
                   {service.groups.length > 0 ? (
                     <IncludesList groups={service.groups} />
                   ) : null}
+
+                  {service.pricingLines ? (
+                    <div className="mt-4 flex flex-col items-start gap-1">
+                      {service.pricingLines.map((line) => (
+                        <p
+                          key={line}
+                          className="text-[13px] leading-tight text-foreground/85"
+                        >
+                          {line}
+                        </p>
+                      ))}
+                    </div>
+                  ) : null}
                 </div>
 
-                {service.id !== "concours" ? (
+                {service.id === "concours" ? (
+                  <a
+                    href="#appointment-form"
+                    className="group mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans text-[15px] font-medium text-white transition-opacity hover:opacity-90 md:mt-8 md:text-[16px]"
+                  >
+                    Request This Service
+                    <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
+                      →
+                    </span>
+                  </a>
+                ) : (
                   <a
                     href="https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services"
                     target="_blank"
@@ -164,7 +202,7 @@ export default function Services() {
                       →
                     </span>
                   </a>
-                ) : null}
+                )}
               </div>
             </div>
           </section>
