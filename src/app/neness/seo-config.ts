@@ -53,3 +53,6 @@ export const OG_IMAGE = {
   height: 675,
   alt: "A vintage luxury automobile in dramatic studio light — Neness mobile car preservation, San Diego",
 };
+
+// Meta (Facebook/Instagram) Pixel — from Events Manager.
+export const META_PIXEL_ID = "1585353669981175";
