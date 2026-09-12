@@ -189,6 +189,33 @@ footer .text-body {
   }
 }
 
+/* Hero entrance-animation starting state, applied in plain CSS instead of
+   waiting for GSAP's fromTo() to set it. GSAP now loads as a deferred
+   chunk (see ScrollAnimations.tsx) so it can arrive noticeably after
+   first paint — without this, these elements would render fully visible
+   at first paint, then suddenly vanish the moment GSAP finally loads and
+   applies its "from" state, before animating back in. That flash (visible
+   -> hidden -> visible) was tanking Speed Index.
+   Opacity only — NOT transform. GSAP's yPercent math expects to own the
+   transform from a clean baseline; pre-setting transform: translateY(...)
+   here made it compute the wrong end value (confirmed: opacity animated
+   to 1 correctly, but the element stayed translated ~80px down forever,
+   invisible inside its overflow-hidden wrapper). Opacity alone is enough
+   to prevent the flash, and doesn't fight GSAP's own transform tween.
+   Reduced-motion users skip straight to the final visible state, matching
+   the reduceMotion branch in ScrollAnimations.tsx. */
+[data-anim="headline-line"],
+[data-anim="hero-meta"] {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-anim="headline-line"],
+  [data-anim="hero-meta"] {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* Keep all interactive elements' keyboard focus visible on both the dark and light surfaces. */
 a:focus-visible,
 button:focus-visible {
