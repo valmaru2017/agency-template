@@ -104,6 +104,13 @@ function LogoMarquee() {
                 alt={event.name}
                 width={event.width}
                 height={event.height}
+                // Without this, Next.js assumes the image renders at its
+                // full intrinsic width (up to 3642px for these files) and
+                // serves a matching ~3840w srcset candidate — even though
+                // CSS renders them at only ~60-280px tall via the custom
+                // height properties below. 240px comfortably covers the
+                // widest case (Dayton's wide logo) at 2-3x mobile DPR.
+                sizes="240px"
                 style={
                   {
                     "--h-mobile": `calc(56px * ${event.scale})`,

@@ -150,8 +150,11 @@ export default function NenessLayout({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(BUSINESS_JSON_LD) }}
       />
 
-      {/* Meta Pixel — afterInteractive so it never blocks first paint. */}
-      <Script id="meta-pixel" strategy="afterInteractive">
+      {/* Meta Pixel — lazyOnload so it loads during browser idle time,
+          after everything the page actually needs to render. It's ~250KB
+          (fbevents.js + the signals config request) and was showing up as
+          one of the top contributors to mobile Total Blocking Time. */}
+      <Script id="meta-pixel" strategy="lazyOnload">
         {`
           !function(f,b,e,v,n,t,s)
           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
