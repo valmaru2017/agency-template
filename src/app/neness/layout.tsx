@@ -87,22 +87,23 @@ const BUSINESS_JSON_LD = {
 };
 
 // Titles (h1/h2/h3, service names) — light weight for a quieter, more
-// luxury feel than the previous bold display face. Weights 400/500/600 are
-// kept available for the handful of non-heading elements (award titles,
-// the pull-quote) that intentionally opt into a heavier cut of this same
-// family via font-semibold/font-bold.
+// luxury feel than the previous bold display face. Only 300 (H2/H3) and
+// 400 (H1) are ever actually applied (checked every .text-* rule in
+// neness.css and every className in this folder) — the heavier cuts this
+// used to load (500/600/700, for elements that no longer exist) were
+// pure dead weight, ~3 extra font files per visitor for nothing.
 const cormorant = Cormorant({
   variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400"],
 });
 
 // Body copy, buttons, and nav — regular weight for running text, medium
-// for anything interactive (buttons, nav links).
+// (font-medium) for anything interactive. 600 isn't used anywhere.
 const manrope = Manrope({
   variable: "--font-manrope-neness",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500"],
 });
 
 export const metadata: Metadata = {
