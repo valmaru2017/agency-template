@@ -1,6 +1,5 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   /* Lets the dev server's HMR/hydration work when opened from another
      device on the same network (e.g. testing on a phone via the LAN IP
      printed in the `next dev` startup log), instead of only `localhost`. */
