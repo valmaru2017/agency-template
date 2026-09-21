@@ -106,7 +106,7 @@ export default function Services() {
               <div
                 data-anim="service-photo"
                 className={`relative h-[300px] w-full overflow-hidden rounded-tl-[2rem] rounded-tr-[2rem] md:[direction:ltr] ${
-                  service.id === "concours" ? "md:h-auto" : "md:h-[366px]"
+                  service.id === "concours" ? "md:h-auto" : "md:h-[400px]"
                 } ${
                   flipped
                     ? "md:rounded-tl-none md:rounded-tr-[2rem] md:rounded-bl-none md:rounded-br-[2rem]"
@@ -124,7 +124,7 @@ export default function Services() {
 
               <div
                 className={`flex flex-col items-start justify-between overflow-hidden rounded-bl-[2rem] rounded-br-[2rem] bg-surface-graphite px-8 py-10 text-left md:px-12 md:[direction:ltr] ${
-                  service.id === "concours" ? "md:h-auto md:py-8" : "md:h-[366px] md:py-6"
+                  service.id === "concours" ? "md:h-auto md:py-8" : "md:h-[400px] md:py-8"
                 } ${
                   flipped
                     ? "md:rounded-tl-[2rem] md:rounded-tr-none md:rounded-bl-[2rem] md:rounded-br-none"
