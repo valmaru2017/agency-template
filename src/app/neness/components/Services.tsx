@@ -123,8 +123,8 @@ export default function Services() {
               </div>
 
               <div
-                className={`flex flex-col items-start justify-between overflow-hidden rounded-bl-[2rem] rounded-br-[2rem] bg-surface-graphite px-8 py-10 text-left md:px-12 md:py-8 md:[direction:ltr] ${
-                  service.id === "concours" ? "md:h-auto" : "md:h-[366px]"
+                className={`flex flex-col items-start justify-between overflow-hidden rounded-bl-[2rem] rounded-br-[2rem] bg-surface-graphite px-8 py-10 text-left md:px-12 md:[direction:ltr] ${
+                  service.id === "concours" ? "md:h-auto md:py-8" : "md:h-[366px] md:py-6"
                 } ${
                   flipped
                     ? "md:rounded-tl-[2rem] md:rounded-tr-none md:rounded-bl-[2rem] md:rounded-br-none"
@@ -151,7 +151,7 @@ export default function Services() {
                   {service.id === "concours" ? null : (
                     <p
                       className={`text-meta text-foreground/70 ${
-                        service.description ? "mt-8 md:mt-10" : "mt-4 md:mt-3"
+                        service.description ? "mt-8 md:mt-6" : "mt-4 md:mt-3"
                       }`}
                     >
                       {`Estimated time: ${service.time}`}
@@ -177,31 +177,41 @@ export default function Services() {
                 </div>
 
                 {service.id === "concours" ? (
-                  <a
-                    href="#appointment-form"
-                    className="group mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans text-[15px] font-medium text-white transition-opacity hover:opacity-90 md:mt-8 md:text-[16px]"
-                  >
-                    Request This Service
-                    <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </a>
+                  <div className="mt-6 md:mt-8">
+                    <a
+                      href="#appointment-form"
+                      className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans text-[15px] font-medium text-white transition-opacity hover:opacity-90 md:text-[16px]"
+                    >
+                      Request This Service
+                      <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </a>
+                    <p className="mt-2 text-[13px] text-foreground/60">
+                      No payment required until service is complete.
+                    </p>
+                  </div>
                 ) : (
-                  <a
-                    href="https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`group inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans font-medium text-white transition-opacity hover:opacity-90 ${
-                      service.description
-                        ? "mt-3 text-[15px] md:mt-2 md:text-[16px]"
-                        : "mt-6 text-[18px] md:mt-5 md:text-[14px]"
-                    }`}
-                  >
-                    Book Now
-                    <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
-                      →
-                    </span>
-                  </a>
+                  <div className={service.description ? "mt-3 md:mt-2" : "mt-6 md:mt-5"}>
+                    <a
+                      href="https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`group inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans font-medium text-white transition-opacity hover:opacity-90 ${
+                        service.description
+                          ? "text-[15px] md:text-[16px]"
+                          : "text-[18px] md:text-[14px]"
+                      }`}
+                    >
+                      Book Now
+                      <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
+                        →
+                      </span>
+                    </a>
+                    <p className="mt-2 text-[13px] text-foreground/60">
+                      No payment required until service is complete.
+                    </p>
+                  </div>
                 )}
               </div>
             </div>
