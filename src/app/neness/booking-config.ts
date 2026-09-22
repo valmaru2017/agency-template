@@ -16,6 +16,11 @@ export type ServiceBookingConfig = {
   id: string;
   label: string;
   durationHours: number;
+  /** Must match SERVICES[].price in Services.tsx (as a number, no "$").
+   *  Only used for the Meta Pixel "Schedule" conversion event's value —
+   *  not shown anywhere in the UI. Keep it in sync if the displayed
+   *  price ever changes. */
+  price: number;
   /** Which time-of-day periods this service offers. Maintenance gets
    *  both; Signature (a longer job) is morning-only so it doesn't run
    *  into the evening. Add/remove "morning" | "afternoon" to change. */
@@ -34,6 +39,7 @@ export const BOOKING_CONFIG: Record<string, ServiceBookingConfig> = {
     id: "maintenance",
     label: "Maintenance",
     durationHours: 3,
+    price: 300,
     periods: ["morning", "afternoon"],
     morningTimes: ["7:00 AM", "8:00 AM", "9:00 AM", "10:00 AM", "11:00 AM"],
     afternoonTimes: ["12:00 PM", "1:00 PM"],
@@ -42,6 +48,7 @@ export const BOOKING_CONFIG: Record<string, ServiceBookingConfig> = {
     id: "signature",
     label: "Signature",
     durationHours: 6,
+    price: 600,
     periods: ["morning"],
     morningTimes: ["7:00 AM", "8:00 AM", "9:00 AM"],
     afternoonTimes: [],

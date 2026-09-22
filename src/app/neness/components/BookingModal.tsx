@@ -15,6 +15,21 @@ import {
 } from "../booking-config";
 import { pauseLenis, resumeLenis } from "../lenis-instance";
 
+// Meta Pixel's base snippet (layout.tsx) attaches fbq to window without
+// TypeScript types — this declares just enough of its shape to call it
+// safely here (window.fbq?.(...) below), without pulling in a full
+// third-party types package for one function.
+declare global {
+  interface Window {
+    fbq?: (
+      event: "track",
+      eventName: string,
+      params?: Record<string, unknown>,
+      options?: { eventID?: string }
+    ) => void;
+  }
+}
+
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -180,6 +195,15 @@ export default function BookingModal({
       location: address,
     });
 
+    // Shared between the client-side Meta Pixel event below and the
+    // submitted form data, so a future server-side Conversions API call
+    // (built from this same submission) can pass the identical event_id
+    // and let Meta deduplicate the two — standard pixel + CAPI pairing.
+    const metaEventId =
+      typeof crypto !== "undefined" && "randomUUID" in crypto
+        ? crypto.randomUUID()
+        : `booking-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+
     data.set("service", service.label);
     data.set("preferred_date", selectedDate.full);
     data.set("preferred_time", selectedTime);
@@ -187,6 +211,7 @@ export default function BookingModal({
       "add_to_google_calendar",
       calendarLink
     );
+    data.set("meta_event_id", metaEventId);
     data.set(
       "_subject",
       `New booking request — ${service.label} — ${selectedDate.full} ${selectedTime}`
@@ -226,18 +251,22 @@ export default function BookingModal({
             });
         }
 
-        // ─────────────────────────────────────────────────────────────
-        // META PIXEL — NOT installed yet. Once the pixel script is added
-        // to layout.tsx, uncomment this to fire a Lead event on every
-        // successful booking-request submission:
-        //
-        // if (typeof window !== "undefined" && (window as any).fbq) {
-        //   (window as any).fbq("track", "Lead", {
-        //     content_name: service.label,
-        //     content_category: "booking_request",
-        //   });
-        // }
-        // ─────────────────────────────────────────────────────────────
+        // Meta Pixel "Schedule" conversion event — fires here (on the
+        // server's 200 response), not on click, so it only counts actual
+        // successful requests. eventID pairs with meta_event_id in the
+        // submitted form data above, so a server-side Conversions API
+        // send built from that same submission can be deduplicated
+        // against this client-side pixel fire.
+        window.fbq?.(
+          "track",
+          "Schedule",
+          {
+            content_name: service.label,
+            value: service.price,
+            currency: "USD",
+          },
+          { eventID: metaEventId }
+        );
       } else {
         setStatus("error");
         setError("Something went wrong. Please try again, or call us instead.");
