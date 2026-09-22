@@ -1,4 +1,5 @@
 import MediaSlot from "./MediaSlot";
+import BookingButton from "./BookingButton";
 
 type ServiceGroup = { label: string | null; items: string[] };
 
@@ -193,21 +194,14 @@ export default function Services() {
                   </div>
                 ) : (
                   <div className={service.description ? "mt-3 md:mt-2" : "mt-6 md:mt-5"}>
-                    <a
-                      href="https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services"
-                      target="_blank"
-                      rel="noopener noreferrer"
+                    <BookingButton
+                      serviceId={service.id}
                       className={`group inline-flex items-center gap-2 rounded-full border border-white/15 bg-black px-6 py-3 font-sans font-medium text-white transition-opacity hover:opacity-90 ${
                         service.description
                           ? "text-[15px] md:text-[16px]"
                           : "text-[18px] md:text-[14px]"
                       }`}
-                    >
-                      Book Now
-                      <span className="text-white transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                      </span>
-                    </a>
+                    />
                     <p className="mt-2 text-[13px] text-foreground/60">
                       No payment required until service is complete.
                     </p>

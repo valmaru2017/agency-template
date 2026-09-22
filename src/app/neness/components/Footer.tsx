@@ -5,8 +5,10 @@ import ContactForm from "./ContactForm";
 const SERVICES = ["Maintenance", "Signature", "Stewardship"];
 const PHONE = "858-224-2312";
 const PHONE_HREF = "tel:+18582242312";
-const BOOKING_HREF =
-  "https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services";
+// Scrolls to the Preservation Services section — no button on the site
+// sends visitors to Square anymore; booking now happens natively via
+// BookingModal.tsx on the Maintenance/Signature cards.
+const BOOKING_HREF = "#services";
 
 export default function Footer() {
   return (
@@ -31,8 +33,6 @@ export default function Footer() {
             <div className="mt-10 hidden items-center gap-3 md:flex">
               <a
                 href={BOOKING_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full bg-ink px-7 py-3.5 font-sans text-[16px] font-medium text-white transition-opacity hover:opacity-90"
               >
                 Book Now
@@ -51,8 +51,6 @@ export default function Footer() {
             <div className="mt-8 flex w-full flex-col gap-3 md:hidden">
               <a
                 href={BOOKING_HREF}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-ink px-8 py-4 font-sans text-[15px] font-medium text-white transition-opacity hover:opacity-90"
               >
                 Book Now

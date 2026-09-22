@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "lenis";
+import { setLenisInstance } from "../lenis-instance";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -25,6 +26,7 @@ export default function ScrollAnimations({
     // Lenis still drives anchor scrolling (nav → #services, tiles → #detailing,
     // etc.) even when motion is reduced — only the decorative tweens below skip.
     const lenis = new Lenis();
+    setLenisInstance(lenis);
     const onLenisScroll = () => ScrollTrigger.update();
     lenis.on("scroll", onLenisScroll);
 
@@ -190,6 +192,7 @@ export default function ScrollAnimations({
       lenis.off("scroll", onLenisScroll);
       gsap.ticker.remove(raf);
       lenis.destroy();
+      setLenisInstance(null);
     };
   }, []);
 

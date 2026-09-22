@@ -20,8 +20,10 @@ const MOBILE_LINKS = [
 
 const PHONE = "858-224-2312";
 const PHONE_HREF = "tel:+18582242312";
-const BOOKING_HREF =
-  "https://book.squareup.com/appointments/tukvgrsqkgp0mb/location/LFWNM1A2FV7J6/services";
+// Scrolls to the Preservation Services section — no button on the site
+// sends visitors to Square anymore; booking now happens natively via
+// BookingModal.tsx on the Maintenance/Signature cards.
+const BOOKING_HREF = "#services";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -129,8 +131,6 @@ export default function Navbar() {
           <li>
             <Link
               href={BOOKING_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full border border-foreground/20 px-5 py-2 font-sans text-[14px] font-medium text-foreground transition-colors hover:border-foreground/40"
             >
               Book now
@@ -208,8 +208,6 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <a
               href={BOOKING_HREF}
-              target="_blank"
-              rel="noopener noreferrer"
               onClick={() => setOpen(false)}
               className="inline-flex h-[54px] items-center justify-center rounded-xl bg-foreground px-8 font-sans text-[16px] font-medium text-background transition-colors hover:bg-foreground/90"
             >
