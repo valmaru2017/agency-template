@@ -2,7 +2,7 @@ export default function CategoryGrid() {
   return (
     <section
       id="services"
-      className="relative bg-white px-5 pb-0 pt-8 md:px-12 md:pb-8 md:pt-10"
+      className="relative scroll-mt-24 bg-white px-5 pb-0 pt-8 md:px-12 md:pb-8 md:pt-10"
     >
       <h2
         data-anim="section-header"
