@@ -173,18 +173,16 @@ export default function BookingModal({
     const email = String(data.get("email") ?? "").trim();
     const phone = String(data.get("phone") ?? "").trim();
     const address = String(data.get("address") ?? "").trim();
+    const vehicleYear = String(data.get("vehicle_year") ?? "").trim();
     const vehicleModel = String(data.get("vehicle_model") ?? "").trim();
-    const vehicleTransmission = String(
-      data.get("vehicle_transmission") ?? ""
-    ).trim();
 
     if (
       !name ||
       !email ||
       !phone ||
       !address ||
-      !vehicleModel ||
-      !vehicleTransmission
+      !vehicleYear ||
+      !vehicleModel
     ) {
       setError("Please fill in every field.");
       return;
@@ -202,7 +200,7 @@ export default function BookingModal({
       isoDate: selectedDate.iso,
       time: selectedTime,
       durationHours: service.durationHours,
-      details: `Preferred appointment requested via neness.com.\nClient: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nVehicle: ${vehicleModel} (${vehicleTransmission})\n\nThis is a PREFERRED slot, not a confirmed booking — confirm with the client before adding.`,
+      details: `Preferred appointment requested via neness.com.\nClient: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nVehicle: ${vehicleYear} ${vehicleModel}\n\nThis is a PREFERRED slot, not a confirmed booking — confirm with the client before adding.`,
       location: address,
     });
 
@@ -507,6 +505,23 @@ export default function BookingModal({
                   <div className="mt-3 grid grid-cols-2 gap-3">
                     <div>
                       <label
+                        htmlFor="booking-vehicle-year"
+                        className="text-meta text-foreground/70"
+                      >
+                        Year
+                      </label>
+                      <input
+                        id="booking-vehicle-year"
+                        name="vehicle_year"
+                        type="text"
+                        inputMode="numeric"
+                        required
+                        placeholder="e.g. 1965"
+                        className={`${fieldClass} mt-1.5`}
+                      />
+                    </div>
+                    <div>
+                      <label
                         htmlFor="booking-vehicle-model"
                         className="text-meta text-foreground/70"
                       >
@@ -518,22 +533,6 @@ export default function BookingModal({
                         type="text"
                         required
                         placeholder="e.g. Porsche 911"
-                        className={`${fieldClass} mt-1.5`}
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="booking-vehicle-transmission"
-                        className="text-meta text-foreground/70"
-                      >
-                        Transmission
-                      </label>
-                      <input
-                        id="booking-vehicle-transmission"
-                        name="vehicle_transmission"
-                        type="text"
-                        required
-                        placeholder="Manual or Automatic"
                         className={`${fieldClass} mt-1.5`}
                       />
                     </div>
