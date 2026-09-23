@@ -427,8 +427,48 @@ export default function BookingModal({
                   )}
                 </div>
 
+                {/* Vehicle info */}
+                <div className="mt-8">
+                  <p className="text-meta text-foreground/70">Vehicle</p>
+                  <div className="mt-3 grid grid-cols-2 gap-3">
+                    <div>
+                      <label
+                        htmlFor="booking-vehicle-year"
+                        className="text-meta text-foreground/70"
+                      >
+                        Year
+                      </label>
+                      <input
+                        id="booking-vehicle-year"
+                        name="vehicle_year"
+                        type="text"
+                        inputMode="numeric"
+                        required
+                        placeholder="e.g. 1965"
+                        className={`${fieldClass} mt-1.5`}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="booking-vehicle-model"
+                        className="text-meta text-foreground/70"
+                      >
+                        Model
+                      </label>
+                      <input
+                        id="booking-vehicle-model"
+                        name="vehicle_model"
+                        type="text"
+                        required
+                        placeholder="e.g. Porsche 911"
+                        className={`${fieldClass} mt-1.5`}
+                      />
+                    </div>
+                  </div>
+                </div>
+
                 {/* Contact fields */}
-                <div className="mt-8 grid grid-cols-1 gap-3">
+                <div className="mt-6 grid grid-cols-1 gap-3">
                   <div>
                     <label
                       htmlFor="booking-name"
@@ -496,46 +536,6 @@ export default function BookingModal({
                       Services are performed at your home, office, or private
                       garage in San Diego.
                     </p>
-                  </div>
-                </div>
-
-                {/* Vehicle info */}
-                <div className="mt-6">
-                  <p className="text-meta text-foreground/70">Vehicle</p>
-                  <div className="mt-3 grid grid-cols-2 gap-3">
-                    <div>
-                      <label
-                        htmlFor="booking-vehicle-year"
-                        className="text-meta text-foreground/70"
-                      >
-                        Year
-                      </label>
-                      <input
-                        id="booking-vehicle-year"
-                        name="vehicle_year"
-                        type="text"
-                        inputMode="numeric"
-                        required
-                        placeholder="e.g. 1965"
-                        className={`${fieldClass} mt-1.5`}
-                      />
-                    </div>
-                    <div>
-                      <label
-                        htmlFor="booking-vehicle-model"
-                        className="text-meta text-foreground/70"
-                      >
-                        Model
-                      </label>
-                      <input
-                        id="booking-vehicle-model"
-                        name="vehicle_model"
-                        type="text"
-                        required
-                        placeholder="e.g. Porsche 911"
-                        className={`${fieldClass} mt-1.5`}
-                      />
-                    </div>
                   </div>
                 </div>
 
