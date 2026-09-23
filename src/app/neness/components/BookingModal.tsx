@@ -173,8 +173,19 @@ export default function BookingModal({
     const email = String(data.get("email") ?? "").trim();
     const phone = String(data.get("phone") ?? "").trim();
     const address = String(data.get("address") ?? "").trim();
+    const vehicleModel = String(data.get("vehicle_model") ?? "").trim();
+    const vehicleTransmission = String(
+      data.get("vehicle_transmission") ?? ""
+    ).trim();
 
-    if (!name || !email || !phone || !address) {
+    if (
+      !name ||
+      !email ||
+      !phone ||
+      !address ||
+      !vehicleModel ||
+      !vehicleTransmission
+    ) {
       setError("Please fill in every field.");
       return;
     }
@@ -191,7 +202,7 @@ export default function BookingModal({
       isoDate: selectedDate.iso,
       time: selectedTime,
       durationHours: service.durationHours,
-      details: `Preferred appointment requested via neness.com.\nClient: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\n\nThis is a PREFERRED slot, not a confirmed booking — confirm with the client before adding.`,
+      details: `Preferred appointment requested via neness.com.\nClient: ${name}\nEmail: ${email}\nPhone: ${phone}\nAddress: ${address}\nVehicle: ${vehicleModel} (${vehicleTransmission})\n\nThis is a PREFERRED slot, not a confirmed booking — confirm with the client before adding.`,
       location: address,
     });
 
@@ -487,6 +498,45 @@ export default function BookingModal({
                       Services are performed at your home, office, or private
                       garage in San Diego.
                     </p>
+                  </div>
+                </div>
+
+                {/* Vehicle info */}
+                <div className="mt-6">
+                  <p className="text-meta text-foreground/70">Vehicle</p>
+                  <div className="mt-3 grid grid-cols-2 gap-3">
+                    <div>
+                      <label
+                        htmlFor="booking-vehicle-model"
+                        className="text-meta text-foreground/70"
+                      >
+                        Model
+                      </label>
+                      <input
+                        id="booking-vehicle-model"
+                        name="vehicle_model"
+                        type="text"
+                        required
+                        placeholder="e.g. Porsche 911"
+                        className={`${fieldClass} mt-1.5`}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="booking-vehicle-transmission"
+                        className="text-meta text-foreground/70"
+                      >
+                        Transmission
+                      </label>
+                      <input
+                        id="booking-vehicle-transmission"
+                        name="vehicle_transmission"
+                        type="text"
+                        required
+                        placeholder="Manual or Automatic"
+                        className={`${fieldClass} mt-1.5`}
+                      />
+                    </div>
                   </div>
                 </div>
 
