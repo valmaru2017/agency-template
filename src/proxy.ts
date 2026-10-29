@@ -3,11 +3,12 @@ import { NextResponse } from "next/server";
 // ─────────────────────────────────────────────────────────────────────────
 // Maintenance / "Coming soon" switch.
 //
-// Set the environment variable MAINTENANCE_MODE=true (in Hostinger's
-// Environment variables, then redeploy) and every page on the site answers
-// with the Coming soon page below. Remove it or set it to anything else and
-// the real site is served exactly as before — nothing here touches the
-// pages themselves.
+// ON by default: every page on the site answers with the Coming soon page
+// below. To show the real site again, either set COMING_SOON to false here
+// and push, or set the environment variable MAINTENANCE_MODE=false in
+// Hostinger and redeploy. Nothing here touches the pages themselves — the
+// real site is intact and returns exactly as it was.
+const COMING_SOON = true;
 // ─────────────────────────────────────────────────────────────────────────
 
 const COMING_SOON_HTML = `<!doctype html>
@@ -73,7 +74,9 @@ const COMING_SOON_HTML = `<!doctype html>
 </html>`;
 
 export function proxy() {
-  if (process.env.MAINTENANCE_MODE !== "true") {
+  const envOverride = process.env.MAINTENANCE_MODE;
+  const hidden = envOverride ? envOverride === "true" : COMING_SOON;
+  if (!hidden) {
     return NextResponse.next();
   }
 
